@@ -7,19 +7,29 @@ function App() {
 
   // Function to handle special button clicks
   const handleBtnClick = (btn) => {
+    console.log("Button Clicked:", btn);
     switch (btn) {
       case "clear":
+        console.log("Clearing Display");
         setDisplay("");
         break;
       case "=":
+        console.log("Evaluating Expression");
         try {
           const result = evaluateExpression(display);
+          console.log("Result:", result);
           setDisplay(result.toString());
         } catch (error) {
           setDisplay("Error");
+          console.error("Error caught:", error);
+          setTimeout(() => {
+            console.log("Clearing Error");
+            setDisplay("");
+          }, 2000); // Clear display after 2 seconds
         }
         break;
       default:
+        console.log("Updating Display:", display + btn);
         setDisplay((prevDisplay) => prevDisplay + btn);
         break;
     }
