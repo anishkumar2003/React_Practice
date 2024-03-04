@@ -56,7 +56,7 @@ function App() {
           <input
             type="text"
             value={display}
-            className="border text-end p-5"
+            className="border text-end p-5 text-xl"
             readOnly
           />
         </div>
