@@ -50,7 +50,7 @@ function App() {
 
   return (
     <>
-      <div className="cal flex flex-col border mt-10 p-5 w-80">
+      <div className="cal flex flex-col border mt-10 p-5 w-80 shadow-md shadow-black">
         <div className="display flex flex-col">
           <h1 className="font-bold text-center text-5xl m-5">Calculator</h1>
           <input
