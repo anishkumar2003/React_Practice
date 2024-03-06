@@ -28,7 +28,7 @@ function App() {
       }
     };
     convert();
-  }, [amount, options]);
+  }, [amount, currencyInfo,options]);
 
   return (
     <div
