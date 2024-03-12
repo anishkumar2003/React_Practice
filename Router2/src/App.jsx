@@ -1,5 +1,12 @@
+import Footer from "./Components/Footer";
+import Nav from "./Components/Nav";
+import { Outlet } from "react-router-dom";
 export default function App() {
   return (
-    <h1>mera name hai anish uamr</h1>
+    <div>
+      <Nav />
+      <Outlet />
+      <Footer />
+    </div>
   );
 }
