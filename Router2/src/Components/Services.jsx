@@ -2,7 +2,7 @@ const Services = () => {
   return (
     <div className="container mx-auto my-5">
       <h1 className=" text-center text-3xl font-bold mb-4">Our Services</h1>
-      <div className="grid grid-cols-3 gap-4">
+      <div className="text-justify grid grid-cols-1 gap-4 md:grid  md:grid-cols-3 md:gap-4 md:p-5">
         <div className="bg-white p-4  flex flex-col justify-center items-center border border-black">
           <h2 className="text-center text-xl font-bold mb-2">Service 1</h2>
           <img src="/path/to/your/image1.jpg" alt="Service 1" />
