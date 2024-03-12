@@ -59,7 +59,7 @@ export default function Nav() {
                   to="/samples"
                   className="text-gray-800 hover:text-orange-700"
                 >
-                  Sample
+                  Services
                 </NavLink>
               </li>
             </ul>
