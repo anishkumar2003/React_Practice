@@ -31,7 +31,10 @@ export default function Nav() {
           >
             <ul className="flex flex-col mt-4 font-medium lg:flex-row lg:space-x-8 lg:mt-0">
               <li>
-                <NavLink to="/" className="text-gray-800 hover:text-orange-700">
+                <NavLink
+                  to="/home"
+                  className="text-gray-800 hover:text-orange-700"
+                >
                   Home
                 </NavLink>
               </li>
@@ -45,7 +48,7 @@ export default function Nav() {
               </li>
               <li>
                 <NavLink
-                  to="/about"
+                  to="/contact"
                   className="text-gray-800 hover:text-orange-700"
                 >
                   Contact
@@ -53,7 +56,7 @@ export default function Nav() {
               </li>
               <li>
                 <NavLink
-                  to="/about"
+                  to="/samples"
                   className="text-gray-800 hover:text-orange-700"
                 >
                   Sample
