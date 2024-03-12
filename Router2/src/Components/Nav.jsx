@@ -1,21 +1,33 @@
+import React, { useState, useEffect } from "react";
 import { Link, NavLink } from "react-router-dom";
-import { FaBars } from "react-icons/fa";
-import { FaTimes } from "react-icons/fa";
+import { FaBars, FaTimes } from "react-icons/fa";
+
 export default function Nav() {
-  function handleclick(str) {
-    const menu = document.getElementById("mobile-menu-2");
-    const close = document.querySelector(".close");
-    const open = document.querySelector(".open");
-    if (str === "open") {
-      open.style.display = "none";
-      menu.style.display = "block";
-      close.style.display = "block";
-    } else if (str === "close") {
-      menu.style.display = "none";
-      open.style.display = "block";
-      close.style.display = "none";
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+
+  function handleclick() {
+    setIsMenuOpen(!isMenuOpen);
+  }
+
+  // Function to close menu on larger screens
+  function handleCloseMenu() {
+    if (window.innerWidth <= 768) {
+      setIsMenuOpen(false);
     }
   }
+
+  // Close menu on resize for larger screens
+  useEffect(() => {
+    function handleResize() {
+      if (window.innerWidth > 768) {
+        setIsMenuOpen(false);
+      }
+    }
+
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
+
   return (
     <header className="shadow sticky z-50 top-0">
       <nav className="bg-white border-gray-200 px-4 lg:px-6 py-2.5">
@@ -42,10 +54,15 @@ export default function Nav() {
             </Link>
           </div>
           <div
-            className="hidden order-3 md:order-1 justify-between items-center w-full md:flex md:w-auto"
+            className={`${
+              isMenuOpen ? "block" : "hidden"
+            } order-3 md:order-1 justify-between items-center w-full md:flex md:w-auto`}
             id="mobile-menu-2"
           >
-            <ul className="flex flex-col mt-4 font-medium md:flex-row md:space-x-8 md:mt-0">
+            <ul
+              className="flex flex-col mt-4 font-medium md:flex-row md:space-x-8 md:mt-0"
+              onClick={handleCloseMenu}
+            >
               <li>
                 <NavLink
                   to="/"
@@ -91,11 +108,13 @@ export default function Nav() {
           <div className="ham md:hidden">
             <FaBars
               className="text-gray-800 cursor-pointer open"
-              onClick={() => handleclick("open")}
+              onClick={handleclick}
+              style={{ display: isMenuOpen ? "none" : "block" }}
             />
             <FaTimes
-              className="text-gray-800 cursor-pointer close hidden"
-              onClick={() => handleclick("close")}
+              className="text-gray-800 cursor-pointer close"
+              onClick={handleclick}
+              style={{ display: isMenuOpen ? "block" : "none" }}
             />
           </div>
         </div>
