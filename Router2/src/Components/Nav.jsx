@@ -1,5 +1,21 @@
 import { Link, NavLink } from "react-router-dom";
+import { FaBars } from "react-icons/fa";
+import { FaTimes } from "react-icons/fa";
 export default function Nav() {
+  function handleclick(str) {
+    const menu = document.getElementById("mobile-menu-2");
+    const close = document.querySelector(".close");
+    const open = document.querySelector(".open");
+    if (str === "open") {
+      open.style.display = "none";
+      menu.style.display = "block";
+      close.style.display = "block";
+    } else if (str === "close") {
+      menu.style.display = "none";
+      open.style.display = "block";
+      close.style.display = "none";
+    }
+  }
   return (
     <header className="shadow sticky z-50 top-0">
       <nav className="bg-white border-gray-200 px-4 lg:px-6 py-2.5">
@@ -11,7 +27,7 @@ export default function Nav() {
               alt="Logo"
             />
           </Link>
-          <div className="flex items-center lg:order-2">
+          <div className="flex items-center md:order-2">
             <Link
               to="#"
               className="text-gray-800 hover:bg-gray-50 focus:ring-4 focus:ring-gray-300 font-medium rounded-lg text-sm px-4 lg:px-5 py-2 lg:py-2.5 mr-2 focus:outline-none"
@@ -26,10 +42,10 @@ export default function Nav() {
             </Link>
           </div>
           <div
-            className="hidden justify-between items-center w-full lg:flex lg:w-auto lg:order-1"
+            className="hidden order-3 md:order-1 justify-between items-center w-full md:flex md:w-auto"
             id="mobile-menu-2"
           >
-            <ul className="flex flex-col mt-4 font-medium lg:flex-row lg:space-x-8 lg:mt-0">
+            <ul className="flex flex-col mt-4 font-medium md:flex-row md:space-x-8 md:mt-0">
               <li>
                 <NavLink
                   to="/"
@@ -71,6 +87,16 @@ export default function Nav() {
                 </NavLink>
               </li>
             </ul>
+          </div>
+          <div className="ham md:hidden">
+            <FaBars
+              className="text-gray-800 cursor-pointer open"
+              onClick={() => handleclick("open")}
+            />
+            <FaTimes
+              className="text-gray-800 cursor-pointer close hidden"
+              onClick={() => handleclick("close")}
+            />
           </div>
         </div>
       </nav>
