@@ -18,7 +18,7 @@ export default function Footer() {
           </a>
         </div>
         <nav className="mb-4">
-          <Link to="/home" className="mx-2">
+          <Link to="/" className="mx-2">
             Home
           </Link>
           <Link to="/about" className="mx-2">
