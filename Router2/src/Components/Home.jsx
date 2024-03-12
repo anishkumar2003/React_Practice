@@ -1,18 +1,32 @@
-import React from 'react';
-import Card from './Card';
+import React from "react";
+import Card from "./Card";
+import cdata from "./CardData";
 
-const Home = () => {
-    return (
-        <div>
-            <h1>Welcome to My Site</h1>
-            <img src="path_to_your_image" alt="Site Logo" />
-            <div className="card-container">
-                <Card title="Card 1" description="This is the first card" />
-                <Card title="Card 2" description="This is the second card" />
-                <Card title="Card 3" description="This is the third card" />
-            </div>
-        </div>
-    );
-};
+function Home() {
+  return (
+    <div className="flex flex-col items-center justify-center min-h-screen bg-gray-100">
+      <h1 className="text-4xl font-bold mb-4">Welcome to My Site</h1>
+      <div className="w-[700px]">
+        <img
+          className="w-full h-64 object-cover mb-4 rounded"
+          src="https://images.unsplash.com/photo-1548588681-adf41d474533?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8N3x8bW9udGFpbnxlbnwwfHwwfHx8MA%3D%3D"
+          alt="Placeholder"
+        />
+      </div>
+      <div className="grid grid-cols-3 gap-4">
+        {cdata.map((card, index) => {
+          return (
+            <Card
+              key={index}
+              title={card.title}
+              description={card.description}
+              imageUrl={card.imageUrl}
+            />
+          );
+        })}
+      </div>
+    </div>
+  );
+}
 
 export default Home;
