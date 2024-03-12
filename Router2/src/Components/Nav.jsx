@@ -33,7 +33,9 @@ export default function Nav() {
               <li>
                 <NavLink
                   to="/home"
-                  className="text-gray-800 hover:text-orange-700"
+                  className={({ isActive }) =>
+                    isActive ? "text-orange-700" : "text-gray-800"
+                  }
                 >
                   Home
                 </NavLink>
@@ -41,7 +43,9 @@ export default function Nav() {
               <li>
                 <NavLink
                   to="/about"
-                  className="text-gray-800 hover:text-orange-700"
+                  className={({ isActive }) =>
+                    isActive ? "text-orange-700" : "text-gray-800"
+                  }
                 >
                   About
                 </NavLink>
@@ -49,15 +53,19 @@ export default function Nav() {
               <li>
                 <NavLink
                   to="/contact"
-                  className="text-gray-800 hover:text-orange-700"
+                  className={({ isActive }) =>
+                    isActive ? "text-orange-700" : "text-gray-800"
+                  }
                 >
                   Contact
                 </NavLink>
               </li>
               <li>
                 <NavLink
-                  to="/samples"
-                  className="text-gray-800 hover:text-orange-700"
+                  to="/services"
+                  className={({ isActive }) =>
+                    isActive ? "text-orange-700" : "text-gray-800"
+                  }
                 >
                   Services
                 </NavLink>
